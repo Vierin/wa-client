@@ -15,16 +15,6 @@ import styles from './Auth.module.scss'
 import { useAuthPage } from './useAuthPage'
 
 const Auth = () => {
-	/* 
-	TODO:
-
-	[] - Auth context
-	[] - Axios
-	[] - React Query
-	[] - Notification
-		
-*/
-
 	const { errors, handleSubmit, isLoading, onSubmit, register, setType } =
 		useAuthPage()
 
