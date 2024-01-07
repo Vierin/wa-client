@@ -1,14 +1,7 @@
-import { useMutation } from '@tanstack/react-query'
-import { useEffect, useState } from 'react'
-import { useForm } from 'react-hook-form'
-
 import Loader from '../../ui/Loader'
 import Button from '../../ui/button/Button'
 import Field from '../../ui/field/Field'
 
-import { useAuth } from '../../../hooks/useAuth'
-
-import AuthService from '../../../services/auth.service'
 import Layout from '../../layout/Layout'
 
 import styles from './Auth.module.scss'

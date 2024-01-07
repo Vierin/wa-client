@@ -16,6 +16,16 @@ import { getIconPath } from './icon-path.util'
 const data = ['chest', 'shoulders', 'biceps', 'legs', 'hit', 'back']
 
 const NewExercise = () => {
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+		reset,
+		control
+	} = useForm({
+		mode: 'onChange'
+	})
+
 	const { isSuccess, error, isLoading, mutate } = useMutation(
 		['create exercise'],
 		body => ExerciseService.create(body),
@@ -25,14 +35,6 @@ const NewExercise = () => {
 			}
 		}
 	)
-
-	const {
-		register,
-		handleSubmit,
-		formState: { errors },
-		reset,
-		control
-	} = useForm({ mode: 'onChange' })
 
 	const onSubmit = data => {
 		mutate(data)
@@ -47,7 +49,7 @@ const NewExercise = () => {
 			/>
 			<div className='wrapper-inner-page'>
 				{error && <Alert type='error' text={error} />}
-				{isSuccess && <Alert type='success' text='Exercise created' />}
+				{isSuccess && <Alert text='Exercise created' />}
 				{isLoading && <Loader />}
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<Field
@@ -67,9 +69,8 @@ const NewExercise = () => {
 						register={register}
 						options={{
 							valueAsNumber: true,
-							validate: value =>
-								value > 0 || 'Times must be number and greater than 0',
-							required: 'times is required'
+							validate: value => value > 0 || 'Times must be number',
+							required: 'Times is required'
 						}}
 						placeholder='Enter times'
 					/>
@@ -90,7 +91,7 @@ const NewExercise = () => {
 											[styles.active]: value === getIconPath(name)
 										})}
 										onClick={() => onChange(getIconPath(name))}
-										draggable='false'
+										draggable={false}
 										height='45'
 									/>
 								))}

@@ -7,7 +7,7 @@ class ExerciseService {
 		return $axios.get(EXERCISES)
 	}
 
-	// name, time, iconPath
+	// name, times, iconPath
 	async create(body) {
 		return $axios.post(EXERCISES, body)
 	}

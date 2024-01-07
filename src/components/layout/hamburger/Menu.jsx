@@ -4,6 +4,8 @@ import { Link, useNavigate } from 'react-router-dom'
 
 import { useAuth } from '../../../hooks/useAuth'
 
+import { TOKEN } from '../../../app.constants'
+
 import styles from './Hamburger.module.scss'
 import { menu } from './menu.data'
 
@@ -13,7 +15,7 @@ const Menu = ({ isShow, setIsShow }) => {
 	const navigate = useNavigate()
 
 	const logoutHandler = () => {
-		Cookies.remove('token')
+		Cookies.remove(TOKEN)
 		setIsAuth(false)
 		setIsShow(false)
 

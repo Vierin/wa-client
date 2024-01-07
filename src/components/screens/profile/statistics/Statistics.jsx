@@ -7,7 +7,7 @@ const Statistics = () => {
 
 	return (
 		<div className={styles.wrapper}>
-			{data?.statistics.map(statistic => (
+			{data?.statistics?.map(statistic => (
 				<div className={styles.count} key={statistic.label}>
 					<div className={styles.heading}>{statistic.label}</div>
 					<div className={styles.number}>{statistic.value}</div>

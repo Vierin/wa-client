@@ -10,9 +10,8 @@ export const useCheckToken = () => {
 	const { setIsAuth, isAuth } = useAuth()
 	const { pathname } = useLocation()
 
-	// при смене пути и isAuth проверяем авторизацию и если нет токена, то выходим с системы
 	useEffect(() => {
 		const token = Cookies.get(TOKEN)
-		if (!token) setIsAuth(false) //выходим с системы
+		if (!token) setIsAuth(false)
 	}, [pathname, isAuth])
 }
